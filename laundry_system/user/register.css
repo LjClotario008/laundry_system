@@ -1,0 +1,103 @@
+/* register.css */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    /* Fresh Wave Signature Gradient */
+    background: linear-gradient(90deg, hsla(236, 100%, 8%, 1) 0%, hsla(211, 100%, 28%, 1) 100%);
+    font-family: 'Poppins', sans-serif;
+}
+
+.auth_container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid rgba(77, 163, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: white;
+}
+
+.fa-user-plus {
+    font-size: 60px; 
+    color: #4da3ff;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(77, 163, 255, 0.3)); 
+}
+.form_group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.form_group label {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Icon inside input styling */
+.input_wrapper {
+    position: relative;
+}
+
+.input_wrapper i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(77, 163, 255, 0.6);
+}
+
+.input_wrapper input {
+    width: 100%;
+    padding: 12px 15px;
+    background: #0d1b3e; /* Matches your Login page */
+    border: 1px solid rgba(77, 163, 255, 0.3);
+    border-radius: 8px;
+    color: white;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+.input_wrapper input:focus {
+    border-color: #4da3ff;
+    box-shadow: 0 0 10px rgba(77, 163, 255, 0.4);
+    background: #11224d; /* Slightly lighter navy when active */
+}
+
+/* This styles the placeholder text color */
+.input_wrapper input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.auth_btn {
+    width: 100%;
+    padding: 14px;
+    background: #1a5eb0;
+    color: white;
+    border: none;
+    border-radius: 8px; 
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.auth_btn:hover {
+    background: white;
+    color: #000328;
+    transform: translateY(-2px);
+}
+
+.footer_links a {
+    color: #4da3ff;
+    text-decoration: none;
+}

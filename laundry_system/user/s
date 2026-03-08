@@ -1,0 +1,120 @@
+<?php
+// 1. START THE SESSION (Must be the very first line)
+session_start();
+
+// 2. SECURITY CHECK
+// If the session 'user_name' is not set, it means the user didn't log in.
+// We kick them back to the login page.
+if (!isset($_SESSION['user_name'])) {
+    header("Location: login.php");
+    exit();
+}
+
+// 3. GET THE REAL NAME
+// Now we pull the actual name from the session (e.g., "Maria Santos")
+$customerName = $_SESSION['user_name'];
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Fresh Wave Laundry</title>
+    <link rel="stylesheet" href="customer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="image/orig.logo.png" alt="laundry_Logo">
+            <h2>Fresh Wave</h2>
+        </div>
+        <nav>
+            <a href="#" class="active"><i class="fas fa-th-large"></i> Overview</a>
+            <a href="#"><i class="fas fa-plus-circle"></i> New Order</a>
+            <a href="#"><i class="fas fa-history"></i> My History</a>
+            <a href="#"><i class="fas fa-user-cog"></i> Settings</a>
+            
+            <div class="user_info_display" style="padding: 15px; margin-top: 20px; border-top: 1px solid rgba(77, 163, 255, 0.1); display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-user-circle" style="color: #4da3ff; font-size: 24px;"></i>
+                <div>
+                    <p style="font-size: 10px; color: rgba(255,255,255,0.5); text-transform: uppercase; margin: 0;">Logged in as</p>
+                    <p style="color: #4da3ff; font-weight: 600; margin: 0;"><?php echo htmlspecialchars($customerName); ?></p> 
+                </div>
+            </div>
+
+            <a href="logout.php" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <main class="main_content" id="content-area">
+        </main>
+
+    <script>
+        // PASS PHP DATA TO JAVASCRIPT
+        // This is where the "Baton Pass" happens.
+        const customerName = "<?php echo htmlspecialchars($customerName); ?>"; 
+
+        const pages = {
+            overview: `
+                <div class="overview_container">
+                    <div class="welcome_msg">
+                        <h1>Welcome Back, ${customerName}!</h1>
+                        <p>What can we wash for you today?</p>
+                    </div>
+                    <div class="services_grid">
+                        <div class="service_card">
+                            <div class="service_icon"><i class="fas fa-tshirt"></i></div>
+                            <h3>Wash & Fold</h3>
+                            <p>Standard laundry service for your everyday clothes.</p>
+                            <button class="get_started_btn" onclick="loadPage('neworder')">Book Now</button>
+                        </div>
+                        <div class="service_card">
+                            <div class="service_icon"><i class="fas fa-soap"></i></div>
+                            <h3>Dry Cleaning</h3>
+                            <p>Professional care for your delicate and formal wear.</p>
+                            <button class="get_started_btn" onclick="loadPage('neworder')">Book Now</button>
+                        </div>
+                        <div class="service_card">
+                            <div class="service_icon"><i class="fas fa-bed"></i></div>
+                            <h3>Household</h3>
+                            <p>Expert cleaning for comforters, curtains, and sheets.</p>
+                            <button class="get_started_btn" onclick="loadPage('neworder')">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            `,
+            neworder: `<div class="page_header"><h1>New Order</h1><p>Start a new laundry request.</p></div>`,
+            myhistory: `<div class="page_header"><h1>My History</h1><p>View your past orders.</p></div>`,
+            settings: `<div class="page_header"><h1>Settings</h1><p>Manage your account info.</p></div>`
+        };
+
+        const contentArea = document.getElementById('content-area');
+        const navLinks = document.querySelectorAll('.sidebar nav a');
+
+        function loadPage(pageKey) {
+            const key = pageKey.toLowerCase().replace(/\s/g, '');
+            if (pages[key]) {
+                contentArea.innerHTML = pages[key];
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const linkText = link.innerText.trim().toLowerCase().replace(/\s/g, '');
+                    if (linkText === key) link.classList.add('active');
+                });
+            }
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.classList.contains('logout')) return;
+                e.preventDefault();
+                loadPage(this.innerText.trim());
+            });
+        });
+
+        loadPage('overview');
+    </script>
+</body>
+</html>

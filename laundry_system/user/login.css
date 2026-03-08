@@ -1,0 +1,122 @@
+/* auth.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Using your exact Home Page Gradient */
+    background: hsla(236, 100%, 8%, 1);
+    background: linear-gradient(90deg, hsla(236, 100%, 8%, 1) 0%, hsla(211, 100%, 28%, 1) 100%);
+    overflow: hidden;
+}
+
+.auth_container {
+    background: rgba(0, 0, 0, 0.3); /* Subtle dark overlay */
+    backdrop-filter: blur(15px);     /* Glassmorphism to match your navbar */
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.auth_container h1 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.auth_container p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* User Circle Icon with your Brand Blue */
+.fa-user-circle {
+    font-size: 60px;
+    color: #4da3ff; 
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(77, 163, 255, 0.3));
+}
+
+.form_group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form_group label {
+    display: block;
+    color: white;
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 300;
+}
+
+.form_group input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+/* Your specific focus logic with Brand Blue glow */
+input:focus {
+    outline: none;
+    border-color: #4da3ff !important;
+    box-shadow: 0 0 15px rgba(77, 163, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Button matching your Home Page "SignIn" Button style */
+.auth_btn {
+    width: 100%;
+    background: #1460b1; /* Your specific button blue */
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.auth_btn:hover {
+    background: white;
+    color: #000328;
+    transform: translateY(-2px);
+}
+
+.footer_links {
+    margin-top: 25px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer_links a {
+    color: #4da3ff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer_links a:hover {
+    text-decoration: underline;
+}
+.footer_links p {
+   color: white;
+}

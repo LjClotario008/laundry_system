@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex; 
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(90deg, rgb(5, 39, 77) 100%, hsla(236, 100%, 6%, 1) 0%);
+    color: white;
+}
+
+
+.main_content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto; 
+    display: block; 
+}
+
+
+.main_content h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+/* Sidebar Design */
+.sidebar {
+    width: 260px;
+    background: rgba(255, 255, 255, 0.03); 
+    backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(77, 163, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+.logo img {
+  
+    height: 50px;         
+    width: auto;           
+    object-fit: contain;
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(190deg) brightness(118%) contrast(119%);
+    opacity: 0.9;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 50px;
+    
+}
+.sidebar nav a {
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 12px;
+    transition:all 0.3s ease;
+}
+.sidebar nav a:hover {
+    background: rgba(17, 87, 161, 0.15); 
+    color: #4da3ff; 
+    padding-left: 20px; 
+}
+.sidebar nav a:hover, 
+.sidebar nav a.active {
+    background: rgba(181, 181, 189, 0.2);
+    font-weight: 600;
+}
+.sidebar nav a.logout:hover {
+    background: rgba(255, 77, 77, 0.1); 
+    color: #ff4d4d; 
+}
+.logout {
+    margin-top: auto;
+    color: #ff4d4d !important;
+}
+
+/* Main Content: Takes up the rest of the space */
+.main_content {
+    flex: 1;
+    padding: 40px;
+}
+/* --- Service Card Styles --- */
+
+.services_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.service_card {
+    background: rgb(219, 216, 216); /* Keeps the white card design you liked */
+    border-radius: 20px;
+    padding: 35px 25px;
+    text-align: center;
+    color: #111; /* Dark text for contrast on white cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service_card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 15px 30px rgba(77, 163, 255, 0.3);
+}
+
+.service_icon {
+    font-size: 45px;
+    color: #001d3d; 
+    margin-bottom: 20px;
+}
+
+.service_card h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.service_card p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+/* card back button*/
+.get_started_btn {
+    background: #0082d8; 
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.get_started_btn:hover {
+    background: #e63e00;
+    transform: scale(1.05);
+}
+.back_btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back_btn:hover {
+    background: #4da3ff; 
+    border-color: #4da3ff;
+    transform: translateX(-5px); 
+}
+.back_btn i {
+    font-size: 12px;
+}
+
+/* Back Button */
+.back_btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white; border: 1px solid rgba(255,255,255,0.2);
+    padding: 8px 15px; border-radius: 8px; cursor: pointer;
+    margin-bottom: 20px; transition: 0.3s;
+}
+.back_btn:hover { background: #4da3ff; }
+
+/* Tracking Stepper */
+.dot { width: 12px; height: 12px; background: #ddd; border-radius: 50%; margin: 0 auto 5px; position: relative; z-index: 2; }
+.dot.active { background: #4da3ff; }
+
+/* Pulse Animation for Current Status */
+.pulse { animation: pulse-blue 1.5s infinite; }
+@keyframes pulse-blue {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(77, 163, 255, 0.7); }
+    70% { transform: scale(1.2); box-shadow: 0 0 0 10px rgba(77, 163, 255, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(77, 163, 255, 0); }
+}
+
+/* Sidebar Hover Fix */
+.sidebar nav a:hover {
+    background: rgba(77, 163, 255, 0.1);
+    color: #4da3ff;
+}
+#map {
+    height: 350px; /* Or whatever height you prefer */
+    width: 100%;
+    border-radius: 15px;
+    z-index: 1; /* Ensures it stays behind popups but above the background */
+}
+
+.booking_container {
+    max-width: 900px; /* Adjust this to control overall width */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+#multiStepForm {
+    background: white;
+    padding: 40px; /* Increases internal spacing for a "taller" feel */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    min-height: 500px; /* Ensures the form doesn't shrink too small */
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+
+#multiStepForm input, 
+#multiStepForm select {
+    width: 100%;
+    height: 45px; 
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 0 15px;
+}
